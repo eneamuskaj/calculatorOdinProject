@@ -1,35 +1,77 @@
+body {
+  background-color: rgb(88, 88, 88);
+}
 .calculatorBody {
   margin: auto;
-  width: 50%;
-  border: 3px solid green;
+
+  width: 40%;
+  border: 5px solid lightgrey;
+}
+h1 {
+  margin: auto;
+  margin-top: 3%;
+  text-align: center;
+  width: 40%;
+  font-size: 40px;
+  font-family: "Dancing Script", cursive;
+  color: #fca311;
 }
 
 .screen {
   display: flex;
   flex-direction: row;
   font-size: 1.5rem;
-  background-color: lightskyblue;
-  line-height: 3em;
+  background-color: #970000;
+  line-height: 2.5em;
   height: 3em;
-  border: 1px solid red;
+  border: 3px solid rgb(87, 87, 87);
   overflow: hidden;
   font-family: "Righteous", cursive;
+  color: #fca311;
 }
-
-.display {
-}
-
 .container {
   display: grid;
+
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
-  background-color: #2196f3;
-  padding: 10px;
+  background-color: #14213d;
+  padding: 15px;
 }
 .btn {
-  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #970000;
   border: 1px solid black;
   text-align: center;
   font-size: 30px;
   font-family: "Righteous", cursive;
+}
+
+.operate {
+  background-color: #fca311;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Righteous", cursive;
+}
+.clear {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #14213d;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+.clearBtn {
+  background-color: #fca311;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Righteous", cursive;
+
+  width: auto;
+}
+
+.equals {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #970000;
 }

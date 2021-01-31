@@ -10,8 +10,14 @@
       href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Monoton&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1>Calculator</h1>
     <div class="calculatorBody">
       <div id="screen" class="screen">
         <p id="display" value=""></p>
@@ -29,15 +35,14 @@
         <button class="btn" value="8">8</button>
         <button class="btn" value="9">9</button>
         <button class="btn" value="0">0</button>
-      </div>
-      <div>
         <button value="add" class="operate">+</button>
         <button value="subtract" class="operate">-</button>
         <button value="multiply" class="operate">*</button>
         <button value="divide" class="operate">/</button>
+        <button id="equals" class="btn equals">=</button>
       </div>
-      <div>
-        <button id="equals">Equals</button>
+      <div class="clear">
+        <button class="clearBtn">Clear</button>
       </div>
     </div>
   </body>
@@ -74,7 +79,7 @@
       } else if (z === "divide") {
         divide(x, y);
       }
-      value1 = "";
+      value1 = result;
       value2 = "";
       operatorx = "undefined";
       document.getElementById("display").innerHTML = result;
@@ -100,7 +105,15 @@
       operator[i].addEventListener("click", function () {
         valueOfOperator = operator[i].value;
         operatorx = valueOfOperator;
-        document.getElementById("operatorx").innerHTML = operatorx;
+        if (operatorx === "add") {
+          document.getElementById("operatorx").innerHTML = "+";
+        } else if (operatorx === "subtract") {
+          document.getElementById("operatorx").innerHTML = "-";
+        } else if (operatorx === "multiply") {
+          document.getElementById("operatorx").innerHTML = "*";
+        } else if (operatorx === "divide") {
+          document.getElementById("operatorx").innerHTML = "/";
+        }
       });
     }
 

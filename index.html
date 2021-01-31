@@ -42,7 +42,7 @@
         <button id="equals" class="btn equals">=</button>
       </div>
       <div class="clear">
-        <button class="clearBtn">Clear</button>
+        <button id="clearBtn" class="clearBtn">Clear</button>
       </div>
     </div>
   </body>
@@ -69,7 +69,7 @@
     value2 = "";
     operatorx = "undefined";
 
-    function operate(x, y, z) {
+    function operateOperator(x, y, z) {
       if (z === "add") {
         add(x, y);
       } else if (z === "subtract") {
@@ -81,7 +81,25 @@
       }
       value1 = result;
       value2 = "";
-      operatorx = "undefined";
+
+      document.getElementById("display").innerHTML = result;
+      setOperatorDisplay();
+      document.getElementById("display2").innerHTML = "";
+    }
+
+    function operateEqual(x, y, z) {
+      if (z === "add") {
+        add(x, y);
+      } else if (z === "subtract") {
+        subtract(x, y);
+      } else if (z === "multiply") {
+        multiply(x, y);
+      } else if (z === "divide") {
+        divide(x, y);
+      }
+      value1 = result;
+      value2 = "";
+      operatorx = "";
       document.getElementById("display").innerHTML = result;
       document.getElementById("operatorx").innerHTML = "";
       document.getElementById("display2").innerHTML = "";
@@ -100,25 +118,41 @@
         }
       });
     }
+
+    function setOperatorDisplay() {
+      if (operatorx === "add") {
+        document.getElementById("operatorx").innerHTML = "+";
+      } else if (operatorx === "subtract") {
+        document.getElementById("operatorx").innerHTML = "-";
+      } else if (operatorx === "multiply") {
+        document.getElementById("operatorx").innerHTML = "*";
+      } else if (operatorx === "divide") {
+        document.getElementById("operatorx").innerHTML = "/";
+      }
+    }
     operator = document.getElementsByClassName("operate");
     for (let i = 0; i < operator.length; i++) {
       operator[i].addEventListener("click", function () {
         valueOfOperator = operator[i].value;
         operatorx = valueOfOperator;
-        if (operatorx === "add") {
-          document.getElementById("operatorx").innerHTML = "+";
-        } else if (operatorx === "subtract") {
-          document.getElementById("operatorx").innerHTML = "-";
-        } else if (operatorx === "multiply") {
-          document.getElementById("operatorx").innerHTML = "*";
-        } else if (operatorx === "divide") {
-          document.getElementById("operatorx").innerHTML = "/";
+        if (value2 !== "") {
+          operateOperator(value1, value2, operatorx);
+        } else {
+          setOperatorDisplay();
         }
       });
     }
 
     document.getElementById("equals").addEventListener("click", function () {
-      operate(value1, value2, operatorx);
+      operateEqual(value1, value2, operatorx);
+    });
+    document.getElementById("clearBtn").addEventListener("click", function () {
+      value1 = "";
+      value2 = "";
+      operatorx = "undefined";
+      document.getElementById("display").innerHTML = "";
+      document.getElementById("operatorx").innerHTML = "";
+      document.getElementById("display2").innerHTML = "";
     });
   </script>
 </html>

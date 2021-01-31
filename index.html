@@ -88,6 +88,11 @@
     }
 
     function operateEqual(x, y, z) {
+      if (value1 == "" || value2 === "") {
+        document.getElementById("display").innerHTML = "";
+        document.getElementById("operatorx").innerHTML = "";
+        document.getElementById("display2").innerHTML = "";
+      }
       if (z === "add") {
         add(x, y);
       } else if (z === "subtract") {

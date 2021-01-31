@@ -1,0 +1,35 @@
+.calculatorBody {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+}
+
+.screen {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  background-color: lightskyblue;
+  line-height: 3em;
+  height: 3em;
+  border: 1px solid red;
+  overflow: hidden;
+  font-family: "Righteous", cursive;
+}
+
+.display {
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+.btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Righteous", cursive;
+}

@@ -31,7 +31,6 @@ h1 {
 }
 .container {
   display: grid;
-
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
   background-color: #14213d;
@@ -74,4 +73,13 @@ h1 {
 .equals {
   background-color: rgba(255, 255, 255, 0.8);
   color: #970000;
+}
+.hovered {
+  color: white;
+  border: 1px solid white;
+}
+
+.clicked {
+  transform: scale(1.1);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }

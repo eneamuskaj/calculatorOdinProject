@@ -75,7 +75,7 @@ h1 {
   color: #970000;
 }
 .hovered {
-  color: white;
+  color: rgb(240, 240, 240);
   border: 1px solid white;
 }
 

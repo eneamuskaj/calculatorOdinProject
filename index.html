@@ -21,7 +21,7 @@
     <div class="calculatorBody">
       <div id="screen" class="screen">
         <p id="display" value=""></p>
-        <p id="operatorx" value=""></p>
+        <p id="operatorScreen" value=""></p>
         <p id="display2" value=""></p>
       </div>
       <div class="container">
@@ -47,141 +47,152 @@
     </div>
   </body>
   <script>
+    //the dispay values
+    value1 = ''
+    value2 = ''
+    operatorScreen = 'undefined'
+    // calculator functions
+
     function add(x, y) {
-      result = parseInt(x) + parseInt(y);
-      return result;
+      result = parseInt(x) + parseInt(y)
+      return result
     }
     function subtract(x, y) {
-      result = parseInt(x) - parseInt(y);
-      return result;
+      result = parseInt(x) - parseInt(y)
+      return result
     }
     function multiply(x, y) {
-      result = parseInt(x) * parseInt(y);
-      return result;
+      result = parseInt(x) * parseInt(y)
+      return result
     }
 
     function divide(x, y) {
-      result = parseInt(x) / parseInt(y);
-      return result;
+      result = parseInt(x) / parseInt(y)
+      return result
     }
 
-    value1 = "";
-    value2 = "";
-    operatorx = "undefined";
-
+    // operators function
     function operateOperator(x, y, z) {
-      if (z === "add") {
-        add(x, y);
-      } else if (z === "subtract") {
-        subtract(x, y);
-      } else if (z === "multiply") {
-        multiply(x, y);
-      } else if (z === "divide") {
-        divide(x, y);
+      if (z === 'add') {
+        add(x, y)
+      } else if (z === 'subtract') {
+        subtract(x, y)
+      } else if (z === 'multiply') {
+        multiply(x, y)
+      } else if (z === 'divide') {
+        divide(x, y)
       }
-      value1 = result;
-      value2 = " ";
+      value1 = result
+      value2 = ' '
 
-      document.getElementById("display").innerHTML = result;
-      setOperatorDisplay();
-      document.getElementById("display2").innerHTML = "";
+      document.getElementById('display').innerHTML = result
+      setOperatorScreen()
+      document.getElementById('display2').innerHTML = ''
     }
 
+    // equal button function
     function operateEqual(x, y, z) {
-      if (z === "add") {
-        add(x, y);
-      } else if (z === "subtract") {
-        subtract(x, y);
-      } else if (z === "multiply") {
-        multiply(x, y);
-      } else if (z === "divide") {
-        divide(x, y);
+      if (z === 'add') {
+        add(x, y)
+      } else if (z === 'subtract') {
+        subtract(x, y)
+      } else if (z === 'multiply') {
+        multiply(x, y)
+      } else if (z === 'divide') {
+        divide(x, y)
       }
-      value1 = result;
-      value2 = "";
-      operatorx = "";
-      document.getElementById("display").innerHTML = result;
-      document.getElementById("operatorx").innerHTML = "";
-      document.getElementById("display2").innerHTML = "";
+      value1 = result
+      value2 = ''
+      operatorScreen = ''
+      document.getElementById('display').innerHTML = result
+      document.getElementById('operatorScreen').innerHTML = ''
+      document.getElementById('display2').innerHTML = ''
     }
 
-    elements = document.getElementsByClassName("btn");
+    // set the display of the operator
+    function setOperatorScreen() {
+      if (operatorScreen === 'add') {
+        document.getElementById('operatorScreen').innerHTML = '+'
+      } else if (operatorScreen === 'subtract') {
+        document.getElementById('operatorScreen').innerHTML = '-'
+      } else if (operatorScreen === 'multiply') {
+        document.getElementById('operatorScreen').innerHTML = '*'
+      } else if (operatorScreen === 'divide') {
+        document.getElementById('operatorScreen').innerHTML = '/'
+      }
+    }
+
+    //adding event listeners to the number buttons
+    elements = document.getElementsByClassName('btn')
     for (let i = 0; i < elements.length; i++) {
-      elements[i].addEventListener("mouseenter", function () {
-        elements[i].classList.add("hovered");
-      });
-      elements[i].addEventListener("mouseout", function (event) {
-        elements[i].classList.remove("hovered");
-      });
+      elements[i].addEventListener('mouseenter', function () {
+        elements[i].classList.add('hovered')
+      })
+      elements[i].addEventListener('mouseout', function (event) {
+        elements[i].classList.remove('hovered')
+      })
 
-      elements[i].addEventListener("click", function () {
-        elements[i].classList.add("clicked");
+      elements[i].addEventListener('click', function () {
+        elements[i].classList.add('clicked')
         setTimeout(function () {
-          elements[i].classList.remove("clicked");
-        }, 100);
+          elements[i].classList.remove('clicked')
+        }, 100)
 
-        valueOfNumber = elements[i].value;
-        if (operatorx === "undefined") {
-          value1 = value1 + valueOfNumber;
-          document.getElementById("display").innerHTML = value1;
+        valueOfNumber = elements[i].value
+        if (operatorScreen === 'undefined') {
+          value1 = value1 + valueOfNumber
+          document.getElementById('display').innerHTML = value1
         } else {
-          value2 = value2 + valueOfNumber;
-          document.getElementById("display2").innerHTML = value2;
+          value2 = value2 + valueOfNumber
+          document.getElementById('display2').innerHTML = value2
         }
-      });
+      })
     }
 
-    function setOperatorDisplay() {
-      if (operatorx === "add") {
-        document.getElementById("operatorx").innerHTML = "+";
-      } else if (operatorx === "subtract") {
-        document.getElementById("operatorx").innerHTML = "-";
-      } else if (operatorx === "multiply") {
-        document.getElementById("operatorx").innerHTML = "*";
-      } else if (operatorx === "divide") {
-        document.getElementById("operatorx").innerHTML = "/";
-      }
-    }
-    operator = document.getElementsByClassName("operate");
+    //adding event listeners to the operator buttons
+    operator = document.getElementsByClassName('operate')
     for (let i = 0; i < operator.length; i++) {
-      operator[i].addEventListener("mouseenter", function () {
-        operator[i].classList.add("hovered");
-      });
-      operator[i].addEventListener("mouseout", function (event) {
-        operator[i].classList.remove("hovered");
-      });
+      operator[i].addEventListener('mouseenter', function () {
+        operator[i].classList.add('hovered')
+      })
+      operator[i].addEventListener('mouseout', function (event) {
+        operator[i].classList.remove('hovered')
+      })
 
-      operator[i].addEventListener("click", function () {
-        operator[i].classList.add("clicked");
+      operator[i].addEventListener('click', function () {
+        operator[i].classList.add('clicked')
         setTimeout(function () {
-          operator[i].classList.remove("clicked");
-        }, 100);
+          operator[i].classList.remove('clicked')
+        }, 100)
 
-        valueOfOperator = operator[i].value;
-        operatorx = valueOfOperator;
-        if (value2 !== "") {
-          operateOperator(value1, value2, operatorx);
+        valueOfOperator = operator[i].value
+        operatorScreen = valueOfOperator
+        if (value2 !== '') {
+          operateOperator(value1, value2, operatorScreen)
         } else {
-          setOperatorDisplay();
+          setOperatorScreen()
         }
-      });
+      })
     }
 
-    document.getElementById("equals").addEventListener("click", function () {
-      operateEqual(value1, value2, operatorx);
-    });
-    document.getElementById("clearBtn").addEventListener("click", function () {
-      document.getElementById("clearBtn").classList.add("clicked");
-      setTimeout(function () {
-        document.getElementById("clearBtn").classList.remove("clicked");
-      }, 100);
+    //adding event listener to the equals button
+    document.getElementById('equals').addEventListener('click', function () {
+      operateEqual(value1, value2, operatorScreen)
+    })
 
-      value1 = "";
-      value2 = "";
-      operatorx = "undefined";
-      document.getElementById("display").innerHTML = "";
-      document.getElementById("operatorx").innerHTML = "";
-      document.getElementById("display2").innerHTML = "";
-    });
+    //adding event listener to the clear button
+    document.getElementById('clearBtn').addEventListener('click', function () {
+      document.getElementById('clearBtn').classList.add('clicked')
+      setTimeout(function () {
+        document.getElementById('clearBtn').classList.remove('clicked')
+      }, 100)
+
+      value1 = ''
+      value2 = ''
+      operatorScreen = 'undefined'
+      document.getElementById('display').innerHTML = ''
+      document.getElementById('operatorScreen').innerHTML = ''
+      document.getElementById('display2').innerHTML = ''
+    })
   </script>
 </html>
